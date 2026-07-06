@@ -1,6 +1,6 @@
 <?php
 
-namespace App\App\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
 use App\Models\Product;
@@ -61,7 +61,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        // Future use ke liye placeholder
+        // Future use
     }
 
     /**
@@ -69,7 +69,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        // Future use ke liye placeholder
+        // Future use
     }
 
     /**
@@ -77,7 +77,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        // Future use ke liye placeholder
+        // Future use
     }
 
     /**
@@ -85,6 +85,6 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        // Future use ke liye placeholder
+        // Future use
     }
 }
