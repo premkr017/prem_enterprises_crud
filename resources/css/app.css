@@ -5,7 +5,55 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
+@source '../**/*.php';
+
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/* Custom page styles for Products create view */
+.page-card {
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 18px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.page-section-title {
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: 0.2px;
+    margin-bottom: 1rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 2px solid rgba(0,0,0,0.08);
+}
+
+.product-form .form-label {
+    font-weight: 700;
+    color: #1f2937; /* gray-800 */
+}
+
+.product-form .form-control,
+.product-form .form-select {
+    border-width: 1.5px;
+}
+
+.product-form .form-control:focus,
+.product-form .form-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0,0,0,0.06);
+    border-color: #111827;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+}
+
+/* Strongly ensure these classes are visible even if Tailwind directives change */
+.page-section-title,
+.page-card {
+    text-rendering: geometricPrecision;
+}
+
+

@@ -4,21 +4,27 @@
     </h1>
 </div>
 
-<div class="container mt-4">
+<div class="container py-4">
 
     <div class="d-flex justify-content-end mb-3">
-        <a href="#" class="btn btn-dark">Create</a>
+        <a href="{{ route('products.index') }}" class="btn btn-dark">Back to Products</a>
     </div>
 
-    <div class="card shadow">
+    <div class="card shadow-lg page-card">
 
-        <div class="card-header bg-dark text-white text-center">
+        <div class="card-header bg-dark text-white text-center py-3">
+
             <h4 class="mb-0">Products</h4>
         </div>
 
         <div class="card-body">
 
-            <form action="{{ route('products.store') }}" method="POST">
+                <div class="page-section-title">Create Product</div>
+
+                <div class="text-muted mb-3" style="font-size: 0.95rem;">Fill the details below and save the product.</div>
+
+
+            <form action="{{ route('products.store') }}" method="POST" class="product-form">
                 @csrf
 
                 <div class="mb-3">
@@ -75,17 +81,20 @@
                     </select>
                 </div>
 
-                <div class="mb-3">
-                    <button class="btn btn-dark">
+                <div class="mb-3 form-actions">
+                    <button class="btn btn-dark w-100 py-2">
                         Create Product
                     </button>
                 </div>
 
             </form>
 
-            <hr>
+            <hr class="my-4">
 
-            <table class="table table-bordered table-striped text-center align-middle">
+            <div class="page-section-title mt-3">Product List (Demo)</div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped text-center align-middle mb-0">
 
                 <thead class="table-dark">
                     <tr>
@@ -128,6 +137,7 @@
                 </tbody>
 
             </table>
+            </div>
 
         </div>
 
