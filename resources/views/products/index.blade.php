@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
     <style>
-        body {
+        html, body {
+            height: 100%;
             margin: 0;
+        }
+        body {
+            min-height: 100vh;
             background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
             font-family: 'Segoe UI', sans-serif;
             color: #111827;
