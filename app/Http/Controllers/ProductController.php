@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      */
@@ -31,13 +34,31 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'sku' => 'required|string|max:255|unique:products,sku',
             'price' => 'required|numeric|min:0',
             'status' => 'required|in:active,inactive',
-            "image" => 'image|mimes:jpeg,png,jpg|max:2048',
+
+
         ]);
+
+
+        if ($validator->fails()) {
+            return redirect(route('products.create'))->withErrors($validator)->withInput();
+        }
+// $validator = Validator::make($request->all(), [
+//     'name' => 'required|string|max:255',
+//     'description' => 'nullable|string',
+//     'price' => 'required|numeric|min:0',
+//     'status' => 'required|in:active,inactive',
+//     "image" => 'image|mimes:jpeg,png,jpg|max:2048',
+// ]);
+
+        // if ($validator->fails()) {
+        //     return redirect(route('products/create'))->withErrors($validator)->withInput();
+        // }   
+
     }
 
     /**
