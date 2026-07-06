@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+            font-family: 'Segoe UI', sans-serif;
+            color: #111827;
+        }
+        .product-shell { min-height: 100vh; padding: 2rem 1rem 3rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .product-toolbar { display: flex; justify-content: flex-end; margin-bottom: 1rem; }
+        .product-toolbar .btn { border-radius: 999px; padding: 0.6rem 1rem; }
+        .product-page-card { border: 0; border-radius: 24px; overflow: hidden; background: #fff; box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12); }
+        .product-page-header { background: linear-gradient(135deg, #111827 0%, #1f2937 100%); color: #fff; padding: 1.4rem 1.5rem; text-align: center; }
+        .product-page-title { font-size: 1.45rem; font-weight: 700; margin: 0; }
+        .page-section-title { font-weight: 800; font-size: 1.15rem; letter-spacing: 0.2px; margin-bottom: 1rem; padding-bottom: 0.65rem; border-bottom: 2px solid rgba(0,0,0,0.08); }
+        .product-table thead th { background: #111827; color: #fff; }
+        .product-table tbody tr:hover { background: #f9fafb; }
+        .product-table .badge { padding: 0.45rem 0.7rem; border-radius: 999px; }
+    </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
