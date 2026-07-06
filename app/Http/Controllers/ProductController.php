@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
 use App\Models\Product;
@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-
-
     /**
      * Display a listing of the resource.
      */
@@ -26,7 +24,6 @@ class ProductController extends Controller
     public function create()
     {
         return view('products.create');
-
     }
 
     /**
@@ -39,26 +36,24 @@ class ProductController extends Controller
             'sku' => 'required|string|max:255|unique:products,sku',
             'price' => 'required|numeric|min:0',
             'status' => 'required|in:active,inactive',
-
-
         ]);
 
-
         if ($validator->fails()) {
-            return redirect(route('products.create'))->withErrors($validator)->withInput();
+            return redirect(route('products.create'))
+                ->withErrors($validator)
+                ->withInput();
         }
-// $validator = Validator::make($request->all(), [
-//     'name' => 'required|string|max:255',
-//     'description' => 'nullable|string',
-//     'price' => 'required|numeric|min:0',
-//     'status' => 'required|in:active,inactive',
-//     "image" => 'image|mimes:jpeg,png,jpg|max:2048',
-// ]);
 
-        // if ($validator->fails()) {
-        //     return redirect(route('products/create'))->withErrors($validator)->withInput();
-        // }   
+        // Database mein product create karein
+        Product::create([
+            'name'   => $request->name,
+            'sku'    => $request->sku,
+            'price'  => $request->price,
+            'status' => $request->status,
+        ]);
 
+        // Success message ke sath vapas bhejlein
+        return redirect()->route('products.create')->with('success', 'Product created successfully!');
     }
 
     /**
@@ -66,7 +61,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        // Future use ke liye placeholder
     }
 
     /**
@@ -74,7 +69,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        // Future use ke liye placeholder
     }
 
     /**
@@ -82,7 +77,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        // Future use ke liye placeholder
     }
 
     /**
@@ -90,6 +85,6 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        // Future use ke liye placeholder
     }
 }
